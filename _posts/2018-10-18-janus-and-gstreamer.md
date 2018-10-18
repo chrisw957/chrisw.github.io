@@ -81,6 +81,55 @@ $ sudo cp  ./ /var/www/html
 </pre>
 You should be able to go to http://<<your public ip>> and see the Janus website now.
 
+# Enable Janus as a systemd service
+* Create a file named /lib/systemd/system/janus.service that looks like below.
+<pre>
+sudo vi /lib/systemd/system/janus.service
+</pre>
+<pre>
+[Unit]
+Description=Janus WebRTC Server
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/janus -o
+Restart=on-abnormal
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target
+</pre>
+* start with:
+<pre>
+$ sudo systemctl start janus
+</pre>
+* To tell the system to start janus automatically at boot:
+<pre>
+$ sudo systemctl enable janus.service
+</pre>
+
+# Configure the Streaming Plugin
+We need to edit the config file for the streaming plugin to accept H264 video from Gstreamer.
+<pre>
+$ sudo vi /opt/janus/etc/janus/janus.plugin.streaming.cfg
+</pre>
+Under the gstreamer-sample section, edit the file to look like this:
+<pre>
+[gstreamer-sample]
+type = rtp
+id = 1
+description = H264 from gstreamer
+audio = no
+video = yes
+videoport = 5004
+videopt = 126
+videortpmap = H264/90000
+secret = adminpwd
+</pre>
+
+
+
 
 
 
