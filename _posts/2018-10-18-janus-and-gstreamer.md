@@ -127,6 +127,15 @@ videopt = 126
 videortpmap = H264/90000
 secret = adminpwd
 </pre>
+Finally, restart Janus to pickup the new cfg file:
+<pre>
+$ sudo systemctl restart janus
+</pre>
+
+# Install gstreamer on the server
+<pre>
+sudo apt-get install libgstreamer1.0-0 gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly gstreamer1.0-libav gstreamer1.0-doc gstreamer1.0-tools
+</pre>
 
 
 
