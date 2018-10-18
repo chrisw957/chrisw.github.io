@@ -33,7 +33,7 @@ a terminal in a broweser window.
 $ sudo apt-get install nginx
 $ sudo ufw allow 'Nginx Full'
 </pre>
-You should be able to go to http://<your public ip> and see the nginx welcome page now.  
+You should be able to go to http://<<your public ip>> and see the nginx welcome page now.  
 The html directory is at /var/www/html.
 	
 # Install Janus
@@ -79,7 +79,7 @@ $ sudo make configs
 $ cd ~/janus-gateway/html
 $ sudo cp  ./ /var/www/html
 </pre>
-You should be able to go to http://<your public ip> and see the Janus website now.
+You should be able to go to http://<<your public ip>> and see the Janus website now.
 
 
 
