@@ -28,6 +28,14 @@ a terminal in a broweser window.
 * Under the Firewall section, click the plus sign to "add another"
 * Leave the application as "Custom", protocol as "TCP", and enter 8088 for port rnage.
 
+# Install Nginx
+<pre>
+$ sudo apt-get install nginx
+$ sudo ufw allow 'Nginx Full'
+</pre>
+You should be able to go to http://<your public ip> and see the nginx welcome page now.  
+The html directory is at /var/www/html.
+	
 # Install Janus
 * Install the dependencies:
 <pre>
@@ -65,5 +73,14 @@ $ make
 $ sudo make install
 $ sudo make configs
 </pre>
+
+# Copy the Janus html
+<pre>
+$ cd ~/janus-gateway/html
+$ sudo cp  ./ /var/www/html
+</pre>
+You should be able to go to http://<your public ip> and see the Janus website now.
+
+
 
 
